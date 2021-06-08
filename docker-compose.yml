@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  web:
+    container_name: spa-back
+    build: 
+      dockerfile: ./docker/DockerFile
+      context: .
+    ports:
+      - '3333:3333'
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgres://postgres:159753@database:5432/test
+    volumes:
+      - .:/server
+    links:
+      - database
+
+  database:
+    container_name: postgres-main-database
+    image: postgres:13.3
+    environment:
+      - POSTGRES_DB=test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=159753
+    volumes:
+      - ./.data/postgresql:/var/lib/postgresql/data
+    ports:
+      - '3002:5432'
