@@ -1,12 +1,17 @@
 const express = require('express');
 const routes = require('./routes');
-const models = require('./database');
+
+const connection = require('./database');
 
 const app = express();
 
 app.use(express.json());
 
 app.use(routes);
+
+connection.authenticate().then(console.log).catch(console.error);
+
+connection.sync({ force: true });
 
 app.listen(3333, () => {
   console.log('Server started on port 3333');
