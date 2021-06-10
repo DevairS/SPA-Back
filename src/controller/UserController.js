@@ -1,4 +1,4 @@
-const User = require('../models/User')
+const User = require('../models/User');
 const connection = require('../database');
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
   },
 
   async index(req, res) {
-    const usersFindAll = await User(connection).findAll()
-    return res.json(usersFindAll)
-  }
+    const usersFindAll = await User(connection).findAll();
+    return res.json(usersFindAll);
+  },
 };

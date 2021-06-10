@@ -4,8 +4,6 @@ const UserFactory = require('../models/User');
 
 const connection = new Sequelize(process.env.DATABASE_URL);
 
-const i = UserFactory(connection);
-
-console.log(i);
+UserFactory(connection);
 
 module.exports = connection;

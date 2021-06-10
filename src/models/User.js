@@ -4,7 +4,7 @@ class User extends Model {
 
 }
 
-function UserFactory(sequelize){
+function UserFactory(sequelize) {
   return User.init({
     name: {
       type: DataTypes.STRING,
@@ -24,7 +24,7 @@ function UserFactory(sequelize){
     },
   }, {
     sequelize,
-    modelName:"Users",
+    modelName: 'Users',
   });
 }
 
